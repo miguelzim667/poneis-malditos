@@ -1,0 +1,786 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O Diário Histórico</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4ead7;
+    color: #33251e;
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+}
+.topo {
+    height: 38px;
+
+    padding: 0 5%;
+
+    background: #4b3025;
+
+    color: #f7ead3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+header {
+    text-align: center;
+
+    padding: 55px 20px 40px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+
+    font-size: clamp(55px, 10vw, 100px);
+
+    font-weight: bold;
+
+    color: #4b3025;
+
+    line-height: .8;
+
+    letter-spacing: -5px;
+}
+
+.logo-sub {
+    margin-top: 20px;
+
+    color: #982f28;
+
+    font-size: 14px;
+
+    letter-spacing: 12px;
+}
+
+.linha {
+    max-width: 1100px;
+
+    height: 4px;
+
+    background: #4b3025;
+
+    margin: 30px auto 15px;
+}
+
+header p {
+    color: #806f61;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+} 
+
+main {
+    width: 92%;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+.hero {
+    text-align: center;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 50px 20px 65px;
+}
+
+.tag {
+    display: inline-block;
+
+    background: #982f28;
+
+    color: white;
+
+    padding: 8px 16px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+
+    color: #4b3025;
+
+    font-size: clamp(45px, 7vw, 75px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin: 25px 0;
+}
+
+.hero h1 em {
+    color: #982f28;
+
+    font-style: italic;
+}
+
+.descricao {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #66584f;
+
+    font-size: 17px;
+}
+
+.data {
+    margin-top: 25px;
+
+    color: #806f61;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+.data span {
+    color: #982f28;
+
+    margin: 0 8px;
+} 
+
+.barra-destaque {
+    background: #4b3025;
+
+    color: #f4ead7;
+
+    padding: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+article {
+    max-width: 800px;
+
+    margin: 70px auto;
+}
+
+article p {
+    color: #443831;
+
+    font-size: 17px;
+
+    line-height: 1.95;
+
+    margin: 25px 0;
+}
+
+.letra {
+    float: left;
+
+    color: #982f28;
+
+    font-family: Georgia, serif;
+
+    font-size: 90px;
+
+    font-weight: bold;
+
+    line-height: .7;
+
+    margin-right: 12px;
+}
+
+.destaque {
+    display: grid;
+
+    grid-template-columns: 75px 1fr;
+
+    gap: 20px;
+
+    background: #e4d2b2;
+
+    border-left: 6px solid #982f28;
+
+    padding: 28px;
+
+    margin: 55px 0;
+}
+
+.numero {
+    color: #982f28;
+
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: bold;
+}
+
+.destaque h2 {
+    color: #4b3025;
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+}
+
+.destaque p {
+    font-size: 14px;
+
+    margin: 5px 0;
+}
+
+.capitulo {
+    margin-top: 75px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 2px solid #4b3025;
+}
+
+.capitulo span {
+    color: #982f28;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.capitulo h2 {
+    color: #4b3025;
+
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    margin-top: 5px;
+}
+
+.citacao {
+    position: relative;
+
+    background: #982f28;
+
+    color: white;
+
+    padding: 45px;
+
+    margin: 70px 0;
+
+    box-shadow: 10px 10px 0 #b58b45;
+}
+
+.citacao span {
+    position: absolute;
+
+    top: -20px;
+
+    left: 20px;
+
+    color: #ffffff44;
+
+    font-family: Georgia, serif;
+
+    font-size: 100px;
+}
+
+.citacao p {
+    color: #fff3df;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    font-style: italic;
+
+    margin: 0;
+}
+
+.conclusao {
+    text-align: center;
+
+    margin: 100px 0 40px;
+
+    padding: 40px 20px;
+
+    border-top: 4px double #4b3025;
+
+    border-bottom: 4px double #4b3025;
+}
+
+.linha-conclusao {
+    width: 70px;
+
+    height: 4px;
+
+    background: #b58b45;
+
+    margin: 0 auto 25px;
+}
+
+.conclusao > span {
+    color: #982f28;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+}
+
+.conclusao h2 {
+    color: #4b3025;
+
+    font-family: Georgia, serif;
+
+    font-size: 35px;
+
+    margin: 15px 0;
+}
+
+.conclusao p {
+    color: #806f61;
+
+    font-size: 14px;
+}
+
+footer {
+    background: #4b3025;
+
+    color: #d9c8aa;
+
+    text-align: center;
+
+    padding: 55px 20px;
+
+    margin-top: 80px;
+}
+
+footer h2 {
+    color: #fff1dc;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+}
+
+.linha-footer {
+    width: 90px;
+
+    height: 2px;
+
+    background: #b58b45;
+
+    margin: 20px auto;
+}
+
+footer p {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+}
+
+footer small {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #a89478;
+}
+
+@media (max-width: 700px) {
+
+    .topo {
+        display: none;
+    }
+
+    header {
+        padding-top: 40px;
+    }
+
+    .logo {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+    .logo-sub {
+        font-size: 11px;
+
+        letter-spacing: 7px;
+    }
+
+    .hero {
+        padding-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+
+        letter-spacing: -2px;
+    }
+
+    .descricao {
+        font-size: 15px;
+    }
+
+    article {
+        margin-top: 50px;
+    }
+
+    article p {
+        font-size: 15px;
+    }
+
+    .destaque {
+        grid-template-columns: 50px 1fr;
+
+        padding: 20px;
+    }
+
+    .numero {
+        font-size: 30px;
+    }
+
+    .capitulo h2 {
+        font-size: 29px;
+    }
+
+    .citacao {
+        padding: 30px;
+    }
+
+    .citacao p {
+        font-size: 18px;
+    }
+
+    .conclusao h2 {
+        font-size: 28px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR -->
+
+    <div class="topo">
+        <span>O DIÁRIO HISTÓRICO</span>
+        <span>EDIÇÃO ESPECIAL</span>
+        <span>30 DE SETEMBRO DE 2026</span>
+    </div>
+
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="logo">
+            O DIÁRIO
+        </div>
+
+        <div class="logo-sub">
+            HISTÓRICO
+        </div>
+
+        <div class="linha"></div>
+
+        <p>
+            HISTÓRIA • RELATOS • DOCUMENTOS
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <!-- MANCHETE -->
+
+        <section class="hero">
+
+            <span class="tag">
+                EDIÇÃO ESPECIAL
+            </span>
+
+            <h1>
+                Os pequenos
+                <em>pôneis</em>
+                que surgiram durante a ofensiva
+            </h1>
+
+            <p class="descricao">
+                Uma narrativa de história alternativa sobre os
+                misteriosos animais que teriam acompanhado
+                as forças alemãs durante os acontecimentos
+                de 1939.
+            </p>
+
+            <div class="data">
+                30 SETEMBRO 2026
+                <span>•</span>
+                6 MIN DE LEITURA
+            </div>
+
+        </section>
+
+
+        <!-- BARRA -->
+
+        <div class="barra-destaque">
+
+            <span>ARQUIVO 1939</span>
+
+            <span>•</span>
+
+            <span>RELATO ESPECIAL</span>
+
+            <span>•</span>
+
+            <span>HISTÓRIA ALTERNATIVA</span>
+
+        </div>
+
+
+        <!-- ARTIGO -->
+
+        <article>
+
+            <p class="abertura">
+                <span class="letra">E</span>m meio à tensão que
+                tomava conta da Europa em 1939, relatos curiosos
+                começaram a circular entre correspondentes e
+                soldados. Pequenos pôneis teriam sido vistos
+                próximos às forças alemãs durante a ofensiva
+                contra a Polônia.
+            </p>
+
+
+            <p>
+                Segundo a narrativa apresentada nesta edição,
+                os animais teriam desempenhado funções
+                inesperadas, participando de missões de
+                comunicação e transporte.
+            </p>
+
+
+            <!-- DESTAQUE -->
+
+            <div class="destaque">
+
+                <div class="numero">
+                    01
+                </div>
+
+                <div>
+
+                    <h2>
+                        Os misteriosos aliados
+                    </h2>
+
+                    <p>
+                        Os relatos descreviam criaturas pequenas
+                        e incomuns que teriam chamado a atenção
+                        dos soldados.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p>
+                Alguns correspondentes teriam descrito a presença
+                dos animais como uma das situações mais incomuns
+                observadas durante aquele período.
+            </p>
+
+
+            <!-- CAPÍTULO I -->
+
+            <div class="capitulo">
+
+                <span>CAPÍTULO I</span>
+
+                <h2>
+                    A chegada à Polônia
+                </h2>
+
+            </div>
+
+
+            <p>
+                Durante a ofensiva, a narrativa afirma que os
+                pequenos animais teriam acompanhado algumas
+                unidades por diferentes regiões, ajudando no
+                transporte de pequenas mensagens e objetos.
+            </p>
+
+
+            <p>
+                Os relatos fictícios descrevem os pequenos pôneis
+                como figuras inesperadas em meio à movimentação
+                militar daquele período.
+            </p>
+
+
+            <!-- CAPÍTULO II -->
+
+            <div class="capitulo">
+
+                <span>CAPÍTULO II</span>
+
+                <h2>
+                    A operação secreta
+                </h2>
+
+            </div>
+
+
+            <p>
+                De acordo com a narrativa, os pequenos animais
+                teriam recebido tarefas de comunicação entre
+                diferentes grupos.
+            </p>
+
+
+            <p>
+                Sua presença teria causado surpresa entre os
+                soldados, que não esperavam encontrar criaturas
+                tão incomuns durante uma operação militar.
+            </p>
+
+
+            <!-- CITAÇÃO -->
+
+            <div class="citacao">
+
+                <span>“</span>
+
+                <p>
+                    Uma presença tão incomum que muitos soldados
+                    acreditavam estar diante de algo completamente
+                    diferente de tudo que já haviam visto.
+                </p>
+
+            </div>
+
+
+            <!-- CAPÍTULO III -->
+
+            <div class="capitulo">
+
+                <span>CAPÍTULO III</span>
+
+                <h2>
+                    O desaparecimento
+                </h2>
+
+            </div>
+
+
+            <p>
+                Após os primeiros acontecimentos, os relatos sobre
+                os pequenos pôneis teriam desaparecido tão
+                rapidamente quanto surgiram.
+            </p>
+
+
+            <p>
+                Nenhum registro posterior teria conseguido explicar
+                o destino dos misteriosos animais, deixando a
+                narrativa cercada de perguntas.
+            </p>
+
+
+            <!-- FINAL DA HISTÓRIA -->
+
+            <div class="conclusao">
+
+                <div class="linha-conclusao"></div>
+
+                <span>FIM DO RELATO</span>
+
+                <h2>
+                    Um capítulo perdido nos arquivos?
+                </h2>
+
+                <p>
+                    A história apresentada nesta página pertence
+                    ao universo da história alternativa e da sátira.
+                </p>
+
+            </div>
+
+        </article>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <h2>
+            O DIÁRIO HISTÓRICO
+        </h2>
+
+        <div class="linha-footer"></div>
+
+        <p>
+            HISTÓRIA ALTERNATIVA • OBRA SATÍRICA
+        </p>
+
+        <small>
+            © 2026 — Projeto experimental
+        </small>
+
+    </footer>
+
+</body>
+
+</html>
+
